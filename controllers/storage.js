@@ -61,7 +61,7 @@ module.exports = {
     fetch: (req, res) => {
         const token = req.headers.authorization.split(' ')[1]; // Bearer <token>
         result = jwt.verify(token, process.env.JWT_SECRET, options);
-        var filename = path.resolve(process.cwd() + '/public/uploads/' + result.user + "/" + req.body.filename); 
+        var filename = path.get(process.cwd() + '/public/uploads/' + result.user + "/" + req.body.filename); 
         res.download(filename);
           
       },
